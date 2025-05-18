@@ -1,0 +1,232 @@
+body,
+h1,
+h2,
+p,
+ul,
+li,
+a,
+dt,
+dl,
+dd {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Mono", monospace;
+  color: #222222;
+  background-color: #faf6ed;
+  display: grid;
+  grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+  grid-template-areas:
+    ". . nav nav"
+    ". titulo titulo titulo"
+    ". . conteudo ."
+    ". titulo-faq titulo-faq titulo-faq"
+    ". . faq ."
+    ". titulo-contato titulo-contato titulo-contato"
+    ". . contato contato"
+    ". . footer footer";
+  color: #222222;
+  padding: 30px 0 30px 0;
+}
+
+a {
+  color: #222222;
+}
+
+/* header */
+
+.header {
+  grid-area: nav;
+  background-color: #ffbb55;
+  padding: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+
+.nav li {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+/* titulo */
+
+h1,
+h2,
+.nav li {
+  text-transform: uppercase;
+}
+
+.titulo {
+  grid-area: titulo;
+  margin-top: 40px;
+  font-family: "Playfair Display SC", serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.titulo-faq {
+  grid-area: titulo-faq;
+  margin-top: 70px;
+  font-family: "Playfair Display SC", serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 70px;
+}
+
+.titulo-contato {
+  grid-area: titulo-contato;
+  margin-top: 70px;
+  font-family: "Playfair Display SC", serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 40px;
+}
+
+/* conteudo */
+
+.conteudo {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-area: conteudo;
+  gap: 20px;
+}
+
+.conteudo-imagem {
+  height: 380px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+.conteudo-imagem::-webkit-scrollbar {
+  width: 10px;
+}
+
+.conteudo-imagem::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conteudo-imagem::-webkit-scrollbar-thumb {
+  background: #ffbb55;
+}
+
+.conteudo-txt h2 {
+  color: #ee5544;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.conteudo-txt h2::before {
+  content: "";
+  width: 40px;
+  height: 10px;
+  background-color: #ffbb55;
+  display: inline-block;
+}
+
+.conteudo-txt div + div {
+  margin-top: 40px;
+}
+
+.conteudo-txt p {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* FAQ */
+
+.faq {
+  grid-area: faq;
+}
+
+.faq dt {
+  color: #ee5544;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.faq dt::before {
+  content: "";
+  width: 20px;
+  height: 10px;
+  background-color: #ffbb55;
+  display: inline-block;
+}
+
+.faq dd {
+  padding-left: 30px;
+  margin-bottom: 40px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Contato */
+.contato {
+  grid-area: contato;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+}
+
+.contato li {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contato li::before {
+  content: "";
+  width: 20px;
+  height: 10px;
+  background-color: #ffbb55;
+  display: inline-block;
+}
+
+/* Footer */
+
+.footer {
+  margin-top: 70px;
+  background-color: #ffbb55;
+  padding: 20px;
+  font-weight: bold;
+  grid-area: footer;
+}
