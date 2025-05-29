@@ -1,3 +1,5 @@
+
+function navegacaoTab () {
 const jsTab = document.querySelectorAll(".js-tab li");
 const jsContent = document.querySelectorAll(".js-content div");
 
@@ -10,3 +12,8 @@ if (jsTab.length && jsContent.length) {
     });
   });
 }
+
+}
+
+
+navegacaoTab();
