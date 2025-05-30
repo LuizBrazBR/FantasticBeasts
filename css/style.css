@@ -317,7 +317,3 @@ h2,
     max-height: 200px; /* ajuste conforme seu conteúdo */
   }
 }
-
-:root {
-  scroll-behavior: smooth;
-}
