@@ -34,3 +34,23 @@ function navegacaoAccordion() {
 }
 
 navegacaoAccordion();
+
+function scrollSuave() {
+  const scrollInterno = document.querySelectorAll(
+    '.js-scroll-interno a[href^="#"]'
+  );
+
+  scrollInterno.forEach((link) => {
+    const href = link.getAttribute("href");
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const section = document.querySelector(href);
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  });
+}
+
+scrollSuave();
