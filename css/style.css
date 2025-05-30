@@ -317,3 +317,15 @@ h2,
     max-height: 200px; /* ajuste conforme seu conteúdo */
   }
 }
+
+.js .js-top {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+
+}
+
+.js-top.ativo {
+  transform: translateY(0);
+  opacity: 1;
+}
