@@ -159,14 +159,19 @@ h2,
   cursor: pointer;
 }
 
-.js .js-content div {
+.js [data-anime="content"] div {
   display: none;
   margin: 0;
 }
 
-.js .js-content div.mostrar {
+.js [data-anime="show-down"].mostrar {
   display: block !important;
-  animation: mover 0.5s forwards;
+  animation: show-down 0.5s forwards;
+}
+
+.js [data-anime="show-right"].mostrar {
+  display: block !important;
+  animation: show-right 0.5s forwards;
 }
 
 .conteudo-imagem::-webkit-scrollbar {
@@ -295,10 +300,22 @@ h2,
   grid-area: footer;
 }
 
-@keyframes mover {
+@keyframes show-right {
   from {
     opacity: 0;
     transform: translate3d(-30px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
   }
 
   to {
@@ -318,16 +335,15 @@ h2,
   }
 }
 
-.js .js-top {
+.js [data-anime="top"] {
   transform: translateY(40px);
   opacity: 0;
   transition: all 0.5s ease-in-out;
   scroll-margin-top: 40px;
 }
 
-.js-top.ativo {
+[data-anime="top"].ativo {
   transform: translateY(0);
   opacity: 1;
   scroll-margin-top: 0;
-
 }
