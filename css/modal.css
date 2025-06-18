@@ -33,7 +33,8 @@
   border: 10px solid #ffbb55;
   box-shadow: 0 0 0 10px white;
   position: relative;
-  min-width: 600px;
+  max-width: 600px;
+  width: 90%;
 }
 
 .modal-form input {
@@ -79,10 +80,4 @@
   font-family: "IBM Plex Mono", monospace;
   font-size: 1rem;
   cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  .modal-form {
-    min-width: 90%;
-  }
 }
