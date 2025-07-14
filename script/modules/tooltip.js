@@ -1,26 +1,34 @@
 export default function tooltip() {
   const tooltip = document.querySelectorAll("[data-tooltip]");
-  const tooltipElement = document.createElement("div");
-  const ariaLabel = document.querySelector(".contato-mapa img");
 
   function handleOver(e) {
+    const tooltipElement = document.createElement("div");
+    const ariaLabel = document.querySelector(".contato-mapa img");
     tooltipElement.innerText = ariaLabel.getAttribute("aria-label");
-    document.body.appendChild(tooltipElement);
     tooltipElement.classList.add("tooltip");
+    document.body.appendChild(tooltipElement);
+    handleLeave.tooltipElement = tooltipElement;
+    handleMove.tooltipElement = tooltipElement;
     e.target.addEventListener("mousemove", handleMove);
+    e.target.addEventListener("mouseleave", handleLeave);
   }
 
-  function handleLeave() {
-    tooltipElement.remove();
-  }
+  const handleLeave = {
+    handleEvent(e) {
+      this.tooltipElement.remove();
+      e.target.removeEventListener("mouseleave", handleLeave);
+      e.target.removeEventListener("mousemove", handleMove);
+    },
+  };
 
-  function handleMove(e) {
-    tooltipElement.style.top = e.pageY + 15 + "px";
-    tooltipElement.style.left = e.pageX + 15 + "px";
-  }
+  const handleMove = {
+    handleEvent(e) {
+      this.tooltipElement.style.top = e.pageY + 15 + "px";
+      this.tooltipElement.style.left = e.pageX + 15 + "px";
+    },
+  };
 
   tooltip.forEach((i) => {
     i.addEventListener("mouseover", handleOver);
-    i.addEventListener("mouseleave", handleLeave);
   });
 }

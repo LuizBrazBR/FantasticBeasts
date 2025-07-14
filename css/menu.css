@@ -1,0 +1,56 @@
+[data-menu] {
+  position: relative;
+}
+
+[data-menu] ul {
+  display: none;
+}
+
+[data-menu]:hover ul,
+[data-menu] .menuClick {
+  display: block;
+  animation: showMenu 0.5s forwards;
+}
+
+@keyframes showMenu {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-menu] ul li:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.menu {
+  top: 45px;
+  position: absolute;
+  background-color: #ed5645;
+  z-index: 100;
+  border: 2px solid black;
+}
+
+.menu::before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-right: 10px transparent solid;
+  border-left: 10px transparent solid;
+  border-bottom: 10px #ed5645 solid;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.menu li {
+  padding-block: 10px;
+  padding-inline: 15px;
+}

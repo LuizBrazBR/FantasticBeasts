@@ -90,19 +90,18 @@ a {
 .header {
   grid-area: nav;
   background-color: #ffbb55;
-  padding: 20px;
 }
 
 .nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.8rem;
 }
 
 .nav li {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
+  padding: 20px;
 }
 
 /* titulo */
