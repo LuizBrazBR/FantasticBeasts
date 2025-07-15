@@ -1,12 +1,12 @@
 export default function menu() {
-  const menus = document.querySelectorAll("[data-menu] .menu");
-  const li = document.querySelector("[data-menu] a");
+  const menus = document.querySelectorAll("[data-menu] a");
+  const ul = document.querySelector("[data-menu] ul");
 
   menus.forEach((menu) => {
     ["click", "touchstart"].forEach((userEvent) => {
       menu.addEventListener(userEvent, (e) => {
         e.preventDefault();
-        e.currentTarget.classList.add("ssss");
+        ul.classList.toggle("menuClick");
       });
     });
   });
