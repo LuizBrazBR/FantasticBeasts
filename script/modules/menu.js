@@ -1,4 +1,7 @@
+import handleClickOutsideFactory from "./clickOutside.js";
+
 export default function menu() {
+  const menuDiv = document.querySelector("[data-menu]");
   const menus = document.querySelectorAll("[data-menu] a");
   const ul = document.querySelector("[data-menu] ul");
   const html = document.documentElement;
@@ -8,18 +11,11 @@ export default function menu() {
       menu.addEventListener(userEvent, (e) => {
         e.preventDefault();
         ul.classList.add("menuClick");
-        const target = e.target;
-
-        html.addEventListener("click", (event) =>
-          handleClickOutside(event, target)
+        html.addEventListener(
+          "click",
+          handleClickOutsideFactory(menuDiv, ul, html)
         );
       });
     });
   });
-
-  function handleClickOutside(event, target) {
-    if (!target.contains(event.target)) {
-      ul.classList.remove("menuClick");
-    }
-  }
 }
