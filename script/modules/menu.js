@@ -15,7 +15,7 @@ export default function menu() {
         menu.classList.add("menuClick");
         subMenuA.classList.add("menuClick");
         nav.classList.add("menuClick");
-        handleClickOutside(userEvent, menu, [subMenuA, nav]);
+        handleClickOutside("click", menu, [subMenuA, nav]);
       });
     });
   });
