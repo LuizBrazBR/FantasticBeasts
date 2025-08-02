@@ -4,6 +4,8 @@ export default function menu() {
   let menuSalvo; // variável fora
 
   const menuDiv = document.querySelectorAll("[data-menu]");
+  const subMenuA = document.querySelector("ul.nav li[data-menu] a");
+  const nav = document.querySelector("ul.nav");
   // const menus = document.querySelectorAll("[data-menu] a");
   // const ul = document.querySelector("[data-menu] ul");
   menuDiv.forEach((menu) => {
@@ -11,7 +13,9 @@ export default function menu() {
       menu.addEventListener(userEvent, (e) => {
         e.preventDefault();
         menu.classList.add("menuClick");
-        handleClickOutside(userEvent, menu);
+        subMenuA.classList.add("menuClick");
+        nav.classList.add("menuClick");
+        handleClickOutside(userEvent, menu, [subMenuA, nav]);
       });
     });
   });

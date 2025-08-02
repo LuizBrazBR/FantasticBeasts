@@ -5,6 +5,7 @@ import efeitoScroll from "./modules/scrollefeito.js";
 import modal from "./modules/modal.js";
 import tooltip from "./modules/tooltip.js";
 import menu from "./modules/menu.js";
+import menuMobile from "./modules/menuMobile.js";
 
 navegacaoTab();
 navegacaoAccordion();
@@ -13,3 +14,4 @@ efeitoScroll();
 modal();
 tooltip();
 menu();
+menuMobile();

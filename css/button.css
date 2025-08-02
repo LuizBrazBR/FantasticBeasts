@@ -1,0 +1,82 @@
+.button {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  color: #fff;
+  background-color: #222222;
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  padding: 7px 15px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+.button::before {
+  content: "";
+  width: 12px;
+  height: 2px;
+  background-color: #fff;
+  box-shadow: #fff 0 4px, #fff 0 -4px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 700px) {
+  .menu {
+    position: static;
+    border: none;
+    margin-top: 10px;
+    padding-right: 13.5px;
+  }
+
+  .button {
+    display: flex;
+    position: relative;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  nav.menuClick .button.menuClick {
+    background-color: #222222;
+    z-index: 300;
+  }
+
+  nav.menuClick .button.menuClick::before {
+    transform: rotate3d(0, 0, 1, 90deg);
+    transition: all 0.3s;
+  }
+
+  nav.menuClick .button.menuClick + ul.nav {
+    display: block;
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    background-color: #ffbb55;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 50px 60px 10px 0;
+    animation: show-right 0.3s forwards;
+  }
+
+  nav.menuClick .button.menuClick + ul.nav li {
+    padding: 10px;
+  }
+
+  nav.menuClick .button.menuClick + ul.nav li[data-menu].menuClick {
+    padding: 0;
+  }
+  nav.menuClick .button.menuClick + ul.nav li[data-menu] a.menuClick {
+    padding-left: 10px;
+  }
+
+  nav.menuClick .button.menuClick + ul.nav.menuClick {
+    padding: 50px 0 0 0;
+  }
+}
