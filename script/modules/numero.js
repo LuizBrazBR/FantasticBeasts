@@ -3,7 +3,7 @@ export default function numero() {
     const numeros = document.querySelectorAll("[data-numero]");
     numeros.forEach((numero) => {
       const total = +numero.textContent;
-      let inicio = Math.random();
+      let inicio = 0;
       setInterval(() => {
         inicio = Math.round(inicio + total / 100);
         numero.textContent = inicio;
@@ -11,7 +11,7 @@ export default function numero() {
         if (inicio > total) {
           numero.textContent = total;
         }
-      }, 10);
+      }, 20 * Math.random());
     });
   }
 
