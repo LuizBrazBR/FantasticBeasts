@@ -45,6 +45,8 @@ body {
     ". . conteudo ."
     ". titulo-faq titulo-faq titulo-faq"
     ". . faq ."
+    ". titulo-numero titulo-numero titulo-numero"
+    ". . numero ."
     ". titulo-contato titulo-contato titulo-contato"
     ". . contato contato"
     ". . footer footer";
@@ -60,6 +62,8 @@ body {
       ". conteudo ."
       ". titulo-faq ."
       ". faq ."
+      ". titulo-numero ."
+      ". numero ."
       ". titulo-contato ."
       ". contato ."
       "footer footer footer";
@@ -67,7 +71,8 @@ body {
   }
   .titulo,
   .titulo-faq,
-  .titulo-contato {
+  .titulo-contato,
+  .titulo-numero {
     font-size: 48px !important;
   }
 

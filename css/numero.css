@@ -1,0 +1,44 @@
+.titulo-numero {
+  grid-area: titulo-numero;
+  margin-top: 70px;
+  font-family: "Playfair Display SC", serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 70px;
+}
+
+.numero {
+  grid-area: numero;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.numero h3 {
+  font-family: "Playfair Display SC";
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.numero span {
+  font-size: 24px;
+  color: #ee5544;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .numero h3 {
+    font-size: 24px;
+  }
+  .numero span {
+    font-size: 16px;
+  }
+
+  .numero {
+    gap: 20px;
+  }
+}

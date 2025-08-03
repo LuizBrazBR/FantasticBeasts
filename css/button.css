@@ -50,7 +50,6 @@
 
   nav.menuClick .button.menuClick::before {
     transform: rotate3d(0, 0, 1, 90deg);
-    transition: all 0.3s;
   }
 
   nav.menuClick .button.menuClick + ul.nav {
