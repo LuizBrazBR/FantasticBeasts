@@ -31,7 +31,7 @@
     position: static;
     border: none;
     margin-top: 10px;
-    padding-right: 13.5px;
+    padding-right: 15px;
   }
 
   .button {
@@ -63,6 +63,7 @@
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
     padding: 50px 60px 10px 0;
     animation: show-right 0.3s forwards;
+    width: 200px;
   }
 
   nav.menuClick .button.menuClick + ul.nav li {
