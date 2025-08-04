@@ -7,6 +7,7 @@ import tooltip from "./modules/tooltip.js";
 import menu from "./modules/menu.js";
 import menuMobile from "./modules/menuMobile.js";
 import numero from "./modules/numero.js";
+import horario from "./modules/horario.js";
 
 navegacaoTab();
 navegacaoAccordion();
@@ -17,3 +18,4 @@ tooltip();
 menu();
 menuMobile();
 numero();
+horario();
