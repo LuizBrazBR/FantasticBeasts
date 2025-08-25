@@ -354,3 +354,9 @@ h2,
   opacity: 1;
   scroll-margin-top: 0;
 }
+
+.btc-preco {
+  background-color: #f7931a;
+  font-weight: bold;
+  padding: 2px 10px;
+}

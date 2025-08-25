@@ -1,15 +1,26 @@
 export default function numero() {
+  function parsePopulation(str) {
+    if (!str) return 0;
+    str = str.replace(/,/g, "").toLowerCase(); // remove vírgula e deixa minúscula
+    if (str.includes("million")) {
+      const n = parseFloat(str);
+      return n * 1000000; // converte milhões para número
+    }
+    if (str.includes("+")) str = str.replace("+", "");
+    return parseInt(str, 10);
+  }
   function initNumero() {
     const numeros = document.querySelectorAll("[data-numero]");
-    numeros.forEach((numero) => {
-      const total = +numero.textContent;
+    numeros.forEach((n) => {
+      let numero = parsePopulation(n.textContent);
+      const total = numero;
       let inicio = 0;
       setInterval(() => {
         inicio = Math.round(inicio + total / 100);
-        numero.textContent = inicio;
+        n.textContent = inicio;
 
         if (inicio > total) {
-          numero.textContent = total;
+          n.textContent = total;
         }
       }, 20 * Math.random());
     });

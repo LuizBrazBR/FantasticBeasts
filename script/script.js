@@ -6,8 +6,9 @@ import modal from "./modules/modal.js";
 import tooltip from "./modules/tooltip.js";
 import menu from "./modules/menu.js";
 import menuMobile from "./modules/menuMobile.js";
-import numero from "./modules/numero.js";
 import horario from "./modules/horario.js";
+import animais from "./modules/fetchAnimais.js";
+import btc from "./modules/btc.js";
 
 navegacaoTab();
 navegacaoAccordion();
@@ -17,5 +18,6 @@ modal();
 tooltip();
 menu();
 menuMobile();
-numero();
 horario();
+animais();
+btc();
