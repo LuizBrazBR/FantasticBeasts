@@ -1,19 +1,27 @@
-export default function scrollSuave() {
-  const scrollInterno = document.querySelectorAll(
-    '[data-anime="scroll"]  a[href^="#"]'
-  );
+export default class scrollSuave {
+  constructor(links, options) {
+    this.scrollInterno = document.querySelectorAll(links);
+    if (options === undefined) {
+      this.options = {
+        behavior: "smooth",
+        block: "start",
+      };
+    } else {
+      this.options = options;
+    }
+  }
 
-  if (scrollInterno.length) {
-    scrollInterno.forEach((link) => {
-      const href = link.getAttribute("href");
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const section = document.querySelector(href);
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
+  init() {
+    if (this.scrollInterno.length) {
+      this.scrollInterno.forEach((link) => {
+        const href = link.getAttribute("href");
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const section = document.querySelector(href);
+          section.scrollIntoView(this.options);
         });
       });
-    });
+    }
+    return this;
   }
 }
