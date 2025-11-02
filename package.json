@@ -1,0 +1,31 @@
+{
+  "name": "fantasticbeasts",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/LuizBrazBR/FantasticBeasts#readme",
+  "bugs": {
+    "url": "https://github.com/LuizBrazBR/FantasticBeasts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuizBrazBR/FantasticBeasts.git"
+  },
+  "license": "ISC",
+  "author": "Luiz Braz",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/plugin-transform-runtime": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/runtime": "^7.28.4",
+    "babel-loader": "^10.0.0",
+    "eslint": "^9.38.0",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
