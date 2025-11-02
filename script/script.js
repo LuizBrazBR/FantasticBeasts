@@ -12,7 +12,10 @@ import btc from "./modules/btc.js";
 
 navegacaoTab();
 navegacaoAccordion();
-scrollSuave();
+
+const scrollSuavizado = new scrollSuave('[data-anime="scroll"]  a[href^="#"]');
+scrollSuavizado.init();
+
 efeitoScroll();
 modal();
 tooltip();
