@@ -1,17 +1,23 @@
-export default function navegacaoAccordion() {
-  const dtFaq = document.querySelectorAll(".faq dt");
-  const ddFaq = document.querySelectorAll(".faq dd");
+export default class navegacaoAccordion {
+  constructor(lista) {
+    this.dtFaq = document.querySelectorAll(lista);
+    this.ativo = "mostrar";
+  }
 
-  if (dtFaq.length && ddFaq.length) {
-    ddFaq[0].classList.add("mostrar");
-    dtFaq[0].classList.add("mostrar");
+  toggleAccordion(item) {
+    item.classList.toggle(this.ativo);
+    item.nextElementSibling.classList.toggle(this.ativo);
+  }
 
-    dtFaq.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        e.currentTarget.classList.toggle("mostrar");
+  init() {
+    this.toggleAccordion(this.dtFaq[0]);
 
-        e.currentTarget.nextElementSibling.classList.toggle("mostrar");
+    if (this.dtFaq.length) {
+      this.dtFaq.forEach((item) => {
+        item.addEventListener("click", () => {
+          this.toggleAccordion(item);
+        });
       });
-    });
+    }
   }
 }

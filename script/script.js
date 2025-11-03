@@ -11,7 +11,9 @@ import animais from "./modules/fetchAnimais.js";
 import btc from "./modules/btc.js";
 
 navegacaoTab();
-navegacaoAccordion();
+
+const accordion = new navegacaoAccordion(".faq dt");
+accordion.init();
 
 const scrollSuavizado = new scrollSuave('[data-anime="scroll"]  a[href^="#"]');
 scrollSuavizado.init();
