@@ -10,7 +10,11 @@ import horario from "./modules/horario.js";
 import animais from "./modules/fetchAnimais.js";
 import btc from "./modules/btc.js";
 
-navegacaoTab();
+const NavegacaoTab = new navegacaoTab(
+  "[data-anime='tab'] li",
+  "[data-anime='content'] div"
+);
+NavegacaoTab.init();
 
 const accordion = new navegacaoAccordion(".faq dt");
 accordion.init();

@@ -1,17 +1,29 @@
-export default function navegacaoTab() {
-  const jsTab = document.querySelectorAll("[data-anime='tab'] li");
-  const jsContent = document.querySelectorAll("[data-anime='content'] div");
+export default class navegacaoTab {
+  constructor(tab, content) {
+    this.jsTab = document.querySelectorAll(tab);
+    this.jsContent = document.querySelectorAll(content);
+  }
 
-  if (jsTab.length && jsContent.length) {
-    jsContent[0].classList.add("mostrar");
-    jsTab.forEach((item, index) => {
+  ativarContent(index) {
+    this.jsContent.forEach((item) => item.classList.remove("mostrar"));
+    this.jsContent[index].classList.add(
+      "mostrar",
+      this.jsContent[index].dataset.anime
+    );
+  }
+
+  ativarNavegacao() {
+    this.jsTab.forEach((item, index) => {
       item.addEventListener("click", () => {
-        jsContent.forEach((item) => item.classList.remove("mostrar"));
-        jsContent[index].classList.add(
-          "mostrar",
-          jsContent[index].dataset.anime
-        );
+        this.ativarContent(index);
       });
     });
+  }
+
+  init() {
+    if (this.jsTab.length && this.jsContent.length) {
+      this.ativarContent(0);
+      this.ativarNavegacao();
+    }
   }
 }
