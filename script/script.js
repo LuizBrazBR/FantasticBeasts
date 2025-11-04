@@ -3,7 +3,7 @@ import navegacaoAccordion from "./modules/navegacaoaccordion.js";
 import scrollSuave from "./modules/scrollsuave.js";
 import efeitoScroll from "./modules/scrollefeito.js";
 import Modal from "./modules/modal.js";
-import tooltip from "./modules/tooltip.js";
+import Tooltip from "./modules/tooltip.js";
 import menu from "./modules/menu.js";
 import menuMobile from "./modules/menuMobile.js";
 import horario from "./modules/horario.js";
@@ -32,7 +32,10 @@ const modal = new Modal(
 
 modal.init();
 
-tooltip();
+const tooltip = new Tooltip("[data-tooltip]");
+
+tooltip.init();
+
 menu();
 menuMobile();
 horario();
