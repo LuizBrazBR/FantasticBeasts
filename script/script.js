@@ -2,7 +2,7 @@ import navegacaoTab from "./modules/navegacaotab.js";
 import navegacaoAccordion from "./modules/navegacaoaccordion.js";
 import scrollSuave from "./modules/scrollsuave.js";
 import efeitoScroll from "./modules/scrollefeito.js";
-import modal from "./modules/modal.js";
+import Modal from "./modules/modal.js";
 import tooltip from "./modules/tooltip.js";
 import menu from "./modules/menu.js";
 import menuMobile from "./modules/menuMobile.js";
@@ -23,7 +23,15 @@ const scrollSuavizado = new scrollSuave('[data-anime="scroll"]  a[href^="#"]');
 scrollSuavizado.init();
 
 efeitoScroll();
-modal();
+
+const modal = new Modal(
+  '[data-modal="abrir"]',
+  '[data-modal="modal"]',
+  '[data-modal="fechar"]'
+);
+
+modal.init();
+
 tooltip();
 menu();
 menuMobile();
