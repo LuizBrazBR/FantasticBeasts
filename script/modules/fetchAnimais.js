@@ -1,4 +1,4 @@
-import numero from "./numero.js";
+import animaNumero from "./numero.js";
 
 export default async function animais() {
   const animaisLista = [
@@ -44,5 +44,6 @@ export default async function animais() {
     })
   );
 
-  numero(); // chamado só uma vez
+  const numero = new animaNumero(".numero", "ativo", "[data-numero]");
+  numero.init(); // chamado só uma vez
 }

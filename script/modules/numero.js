@@ -1,5 +1,24 @@
-export default function numero() {
-  function parsePopulation(str) {
+export default class animaNumero {
+  constructor(section, classe, numero) {
+    this.section = document.querySelector(section);
+    this.classe = classe;
+    this.numero = document.querySelectorAll(numero);
+    this.mutacao = this.mutacao.bind(this);
+  }
+
+  init() {
+    this.observer = new MutationObserver(this.mutacao);
+    this.observer.observe(this.section, { attributes: true });
+  }
+
+  mutacao(mutation) {
+    if (mutation[0].target.className.includes(this.classe)) {
+      this.setNumero();
+      this.observer.disconnect();
+    }
+  }
+
+  static parsePopulation(str) {
     if (!str) return 0;
     str = str.replace(/,/g, "").toLowerCase(); // remove vírgula e deixa minúscula
     if (str.includes("million")) {
@@ -9,16 +28,15 @@ export default function numero() {
     if (str.includes("+")) str = str.replace("+", "");
     return parseInt(str, 10);
   }
-  function initNumero() {
-    const numeros = document.querySelectorAll("[data-numero]");
+
+  static animaNumero(numeros) {
     numeros.forEach((n) => {
-      let numero = parsePopulation(n.textContent);
+      let numero = this.parsePopulation(n.textContent);
       const total = numero;
       let inicio = 0;
       setInterval(() => {
         inicio = Math.round(inicio + total / 100);
         n.textContent = inicio;
-
         if (inicio > total) {
           n.textContent = total;
         }
@@ -26,15 +44,7 @@ export default function numero() {
     });
   }
 
-  function mutacao(mutation) {
-    if (mutation[0].target.className.includes("ativo")) {
-      initNumero();
-      observer.disconnect();
-    }
+  setNumero() {
+    this.constructor.animaNumero(this.numero);
   }
-
-  const section = document.querySelector(".numero");
-  const observer = new MutationObserver(mutacao);
-
-  observer.observe(section, { attributes: true });
 }
