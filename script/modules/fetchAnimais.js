@@ -1,13 +1,11 @@
 import animaNumero from "./numero.js";
 
-export default async function animais() {
-  const animaisLista = [
-    "Eurasian Wolf",
-    "Tibetan Fox",
-    "Eastern Gray Squirrel",
-    "Asiatic Black Bear",
-  ];
-  const section = document.querySelector(".numero");
+export default async function animais(lista, secao) {
+  //Quais animais buscar da api
+  const animaisLista = lista;
+
+  //Onde o elemento será criado
+  const section = document.querySelector(secao);
 
   function parsePopulation(str) {
     if (!str) return 0;
@@ -20,30 +18,37 @@ export default async function animais() {
     return parseInt(str, 10);
   }
 
-  await Promise.all(
-    animaisLista.map(async (animal) => {
-      const res = await fetch(
-        `https://api.api-ninjas.com/v1/animals?name=${animal}`,
-        {
-          headers: { "x-api-key": "r9jhKyZcV6+e/We7XBmsHw==P3pXcbKak8sOkTBz" },
-        }
-      );
-
-      const dadosJSON = await res.json();
-      if (!dadosJSON[0]) return; // evita erro se não tiver resultado
-
-      const div = document.createElement("div");
-      div.classList.add("numero-grid");
-      div.innerHTML = `
+  function criarElemento(dadosJSON) {
+    const div = document.createElement("div");
+    div.classList.add("numero-grid");
+    div.innerHTML = `
         <h3>${dadosJSON[0].name}</h3>
         <span data-numero>${parsePopulation(
           dadosJSON[0].characteristics.estimated_population_size
         )}</span>
       `;
-      section.append(div);
-    })
-  );
+    section.append(div);
+  }
 
-  const numero = new animaNumero(".numero", "ativo", "[data-numero]");
-  numero.init(); // chamado só uma vez
+  if (animaisLista.length && section) {
+    await Promise.all(
+      animaisLista.map(async (animal) => {
+        const res = await fetch(
+          `https://api.api-ninjas.com/v1/animals?name=${animal}`,
+          {
+            headers: {
+              "x-api-key": "r9jhKyZcV6+e/We7XBmsHw==P3pXcbKak8sOkTBz",
+            },
+          }
+        );
+
+        const dadosJSON = await res.json();
+        if (!dadosJSON[0]) return; // evita erro se não tiver resultado
+        criarElemento(dadosJSON);
+      })
+    );
+
+    const numero = new animaNumero(secao, "ativo", "[data-numero]");
+    numero.init(); // chamado só uma vez
+  }
 }
