@@ -39,5 +39,13 @@ tooltip.init();
 menu();
 menuMobile();
 horario();
-animais();
+animais(
+  [
+    "Eurasian Wolf",
+    "Tibetan Fox",
+    "Eastern Gray Squirrel",
+    "Asiatic Black Bear",
+  ],
+  ".numero"
+);
 btc();
