@@ -48,4 +48,4 @@ animais(
   ],
   ".numero"
 );
-btc();
+btc("https://blockchain.info/ticker", ".btc-preco");
