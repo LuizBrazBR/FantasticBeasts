@@ -22,7 +22,8 @@ accordion.init();
 const scrollSuavizado = new scrollSuave('[data-anime="scroll"]  a[href^="#"]');
 scrollSuavizado.init();
 
-efeitoScroll();
+const efeitoscroll = new efeitoScroll("h1[data-anime='top']", "ativo");
+efeitoscroll.init();
 
 const modal = new Modal(
   '[data-modal="abrir"]',
