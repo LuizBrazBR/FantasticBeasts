@@ -1,9 +1,11 @@
+import debounce from "./debounce.js";
+
 export default class efeitoScroll {
   constructor(sections, classAtivo) {
     this.jsScroll = document.querySelectorAll(sections);
     this.ativar = classAtivo;
     this.topWindow = window.innerHeight * 0.6;
-    this.verificaTop = this.verificaTop.bind(this);
+    this.verificaTop = debounce(this.verificaTop.bind(this), 50);
   }
 
   getTopElement() {
