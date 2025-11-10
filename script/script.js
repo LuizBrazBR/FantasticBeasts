@@ -4,7 +4,7 @@ import scrollSuave from "./modules/scrollsuave.js";
 import efeitoScroll from "./modules/scrollefeito.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
-import menu from "./modules/menu.js";
+import Menu from "./modules/menu.js";
 import menuMobile from "./modules/menuMobile.js";
 import horario from "./modules/horario.js";
 import animais from "./modules/fetchAnimais.js";
@@ -37,7 +37,9 @@ const tooltip = new Tooltip("[data-tooltip]");
 
 tooltip.init();
 
-menu();
+const menu = new Menu("[data-menu]");
+menu.init();
+
 menuMobile();
 horario();
 animais(

@@ -5,7 +5,9 @@ export default class efeitoScroll {
     this.jsScroll = document.querySelectorAll(sections);
     this.ativar = classAtivo;
     this.topWindow = window.innerHeight * 0.6;
-    this.verificaTop = debounce(this.verificaTop.bind(this), 50);
+    this.verificaTop = debounce(() => {
+      this._verificaTop();
+    }, 50);
   }
 
   getTopElement() {
@@ -17,7 +19,7 @@ export default class efeitoScroll {
     });
   }
 
-  verificaTop() {
+  _verificaTop() {
     this.distance.forEach((e) => {
       if (scrollY > e.offsetTop - this.topWindow) {
         e.element.classList.add(this.ativar);
@@ -32,7 +34,7 @@ export default class efeitoScroll {
   init() {
     if (this.jsScroll.length) {
       this.getTopElement();
-      this.verificaTop();
+      this._verificaTop();
       window.addEventListener("scroll", this.verificaTop);
     }
   }
