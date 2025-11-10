@@ -37,8 +37,6 @@ export default class tooltip {
   }
 
   handleMove(e) {
-    console.log(innerWidth);
-
     if (e.pageX + 175 > innerWidth) {
       this.tooltipElement.style.left = e.pageX - 160 + "px";
     } else {

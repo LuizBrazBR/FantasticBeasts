@@ -5,7 +5,7 @@ import efeitoScroll from "./modules/scrollefeito.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import Menu from "./modules/menu.js";
-import menuMobile from "./modules/menuMobile.js";
+import MenuMobile from "./modules/menuMobile.js";
 import horario from "./modules/horario.js";
 import animais from "./modules/fetchAnimais.js";
 import btc from "./modules/btc.js";
@@ -40,7 +40,8 @@ tooltip.init();
 const menu = new Menu("[data-menu]");
 menu.init();
 
-menuMobile();
+const menumobile = new MenuMobile("nav", ".button");
+
 horario();
 animais(
   [
