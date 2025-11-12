@@ -3,7 +3,7 @@ import handleClickOutside from "./clickOutside.js";
 export default class menu {
   constructor(menu, userevent) {
     this.menu = document.querySelector(menu);
-    this.userEvent = userevent ?? ["click", "touchstart"];
+    this.userEvent = userevent ?? ["click"];
     this.handleUserEvent = (e) => {
       this._handleUserEvent(e);
     };
