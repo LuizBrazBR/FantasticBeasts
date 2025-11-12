@@ -6,9 +6,9 @@ import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import Menu from "./modules/menu.js";
 import MenuMobile from "./modules/menuMobile.js";
-import horario from "./modules/horario.js";
 import animais from "./modules/fetchAnimais.js";
 import btc from "./modules/btc.js";
+import Horario from "./modules/horario.js";
 
 const NavegacaoTab = new navegacaoTab(
   "[data-anime='tab'] li",
@@ -42,7 +42,9 @@ menu.init();
 
 const menumobile = new MenuMobile("nav", ".button");
 
-horario();
+const horario = new Horario("[data-semana]", "[data-horario]");
+horario.init();
+
 animais(
   [
     "Eurasian Wolf",

@@ -1,18 +1,31 @@
-export default function horario() {
-  const semana = document.querySelector("[data-semana]");
-  const horario = document.querySelector("[data-horario]");
+export default class horario {
+  constructor(semana, horario) {
+    this.semana = document.querySelector(semana);
+    this.horario = document.querySelector(horario);
+  }
 
-  const agora = new Date();
+  verificaAbertura() {
+    this.agora = new Date();
+    this.utc = this.agora.getTime() + this.agora.getTimezoneOffset() * 60000;
+    this.horaBrasil = new Date(this.utc - 3 * 60 * 60000); // UTC−3
+    this.semanaAberto =
+      this.semana.dataset.semana
+        .split(",")
+        .map(Number)
+        .indexOf(this.horaBrasil.getDay()) !== -1;
+    this.horaAberto =
+      this.horaBrasil.getHours() >=
+        this.horario.dataset.horario.split(",").map(Number)[0] &&
+      this.horaBrasil.getHours() + this.horaBrasil.getMinutes() / 60 <=
+        this.horario.dataset.horario.split(",").map(Number)[1];
+  }
 
-  const semanaAberto =
-    semana.dataset.semana.split(",").map(Number).indexOf(agora.getDay()) == !-1;
-
-  const horaAberto =
-    agora.getHours() >= horario.dataset.horario.split(",").map(Number)[0] &&
-    agora.getHours() + agora.getMinutes() / 60 <=
-      horario.dataset.horario.split(",").map(Number)[1];
-
-  if (semanaAberto && horaAberto) {
-    semana.classList.add("aberto");
+  init() {
+    this.verificaAbertura();
+    if (this.semanaAberto && this.horaAberto) {
+      this.semana.classList.add("aberto");
+    } else {
+      this.semana.classList.remove("aberto");
+    }
   }
 }

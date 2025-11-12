@@ -11,7 +11,7 @@ export default class menu {
 
   _handleUserEvent(e) {
     e.preventDefault();
-    this.menu.classList.add("menuClick");
+    this.menu.classList.toggle("menuClick");
     handleClickOutside(this.userEvent, this.menu);
   }
 
