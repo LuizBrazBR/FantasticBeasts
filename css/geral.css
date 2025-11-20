@@ -45,6 +45,7 @@ body {
     ". . conteudo ."
     ". titulo-faq titulo-faq titulo-faq"
     ". . faq ."
+    "galeria galeria galeria galeria"
     ". titulo-numero titulo-numero titulo-numero"
     ". . numero ."
     ". titulo-contato titulo-contato titulo-contato"
@@ -62,6 +63,7 @@ body {
       ". conteudo ."
       ". titulo-faq ."
       ". faq ."
+      "galeria galeria galeria"
       ". titulo-numero ."
       ". numero ."
       ". titulo-contato ."
@@ -270,6 +272,13 @@ h2,
 .js .faq dd.mostrar {
   display: block;
   animation: descer 0.5s forwards;
+}
+
+/* Galeria */
+
+.galeria {
+  grid-area: galeria;
+  margin: 40px;
 }
 
 /* Contato */

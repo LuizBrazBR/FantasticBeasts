@@ -9,6 +9,7 @@ import MenuMobile from "./modules/menuMobile.js";
 import animais from "./modules/fetchAnimais.js";
 import btc from "./modules/btc.js";
 import Horario from "./modules/horario.js";
+import { SliderButton } from "./modules/slide.js";
 
 const NavegacaoTab = new navegacaoTab(
   "[data-anime='tab'] li",
@@ -55,3 +56,7 @@ animais(
   ".numero"
 );
 btc("https://blockchain.info/ticker", ".btc-preco");
+
+const slider = new SliderButton(".slider", ".wrapper");
+slider.init();
+slider.activePaginacao("active", ".nav-top");
