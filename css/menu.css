@@ -30,7 +30,7 @@
   }
 }
 
-[data-menu] ul li:hover {
+[data-menu] ul li > a:hover {
   color: white;
   cursor: pointer;
 }
