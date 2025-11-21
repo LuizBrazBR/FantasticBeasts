@@ -3,6 +3,7 @@ import handleClickOutside from "./clickOutside.js";
 export default class menu {
   constructor(menu, userevent) {
     this.menu = document.querySelector(menu);
+    this.trigger = this.menu.querySelector("a");
     this.userEvent = userevent ?? ["click"];
     this.handleUserEvent = (e) => {
       this._handleUserEvent(e);
@@ -17,7 +18,7 @@ export default class menu {
 
   handleEvent() {
     this.userEvent.forEach((events) => {
-      this.menu.addEventListener(events, this.handleUserEvent);
+      this.trigger.addEventListener(events, this.handleUserEvent);
     });
   }
 
